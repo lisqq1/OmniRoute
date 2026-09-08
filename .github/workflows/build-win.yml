@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -35,7 +35,9 @@ jobs:
 
       - name: Build Windows installer
         working-directory: ./electron
-        run: npm run build:win
+        run: |
+          npm install
+          npm run build:win
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
