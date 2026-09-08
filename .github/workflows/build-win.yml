@@ -31,6 +31,8 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build Next.js app
+        env:
+          NODE_OPTIONS: "--max-old-space-size=6144"
         run: pnpm run build
 
       - name: Build Windows installer
